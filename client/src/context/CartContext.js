@@ -23,14 +23,17 @@ const CartProvider = ({ children }) => {
     setTotal(total);
   }, [cart]);
 
-  const addToCart = (item, id) => {
-    const itemID = parseInt(id);
+  const addToCart = (item) => {
+    const itemID = item._id.toString();
     const existingCartItem = cart.find((cartItem) => {
-      return toString(cartItem._id) === toString(itemID);
+      console.log(cartItem._id , itemID)
+      return cartItem._id === itemID;
     });
+    console.log("id:", item._id)
+    console.log("existingCartItem:", existingCartItem)
     if (existingCartItem) {
       const updatedCart = cart.map((cartItem) => {
-        if (toString(cartItem._id) === toString(itemID)) {
+        if (cartItem._id === itemID) {
           cartItem.amount++;
           return cartItem;
         }
@@ -38,9 +41,9 @@ const CartProvider = ({ children }) => {
       });
       setCart(updatedCart);
     } else {
+      console.log("asdasd")
       setCart([...cart, { ...item, amount: 1 }]);
     }
-
     setIsOpen(true);
   };
 
