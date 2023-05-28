@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
@@ -8,15 +8,19 @@ const Search = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const searchTerm = searchParams.get("query");
+  const searchText = searchTerm.trim();
   const [data, setData] = useState([]);
 
-  const fetchData = async () => {
-    const res = await fetch("http://localhost:9000/api/inventory/products");
-    const data = await res.json();
-    setData(data);
-    console.log(data);
-  };
-  fetchData();
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch(
+        `http://localhost:9000/api/inventory/products?name=${searchText}`
+      );
+      const data = await res.json();
+      setData(data);
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="mb-[30px] pt-40 lg:pt-4 lg:pt-0">

@@ -30,11 +30,13 @@ const Header = () => {
           <Link>
             <img src={Logo} alt="logo" />
           </Link>
-          {/* <div className="hidden w-full xl:flex xl:max-w-[734px]">
+          <div className="hidden w-full xl:flex xl:max-w-[734px]">
             <SearchForm />
-          </div> */}
+          </div>
           <div className="flex items-center gap-x-[10px]">
-            <div className="hidden xl:flex uppercase">need help ? +2001283845336</div>
+            <div className="hidden xl:flex uppercase">
+              need help ? +2001283845336
+            </div>
             <div
               onClick={() => setIsOpen(!isOpen)}
               className=" relative cursor-pointer"
