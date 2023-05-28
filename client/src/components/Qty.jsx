@@ -13,7 +13,7 @@ const Qty = ({ item }) => {
           className="p-2 rounded-lg w-[100px] h-12 outline-none text-primary"
         >
           <option value="1">1</option>
-          <option value="2">1</option>
+          <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
           <option value="5">5</option>
