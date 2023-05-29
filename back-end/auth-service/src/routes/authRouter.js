@@ -47,7 +47,7 @@ router.post('/register', isNotAuthenticated, async (req, res, next) => {
 }) // user should be authenticated in order to logout
 
 // authentication route 
-router.use('/', isAuthenticated, function(req, res) {
+router.use( isAuthenticated, function(req, res) {
   res.status(200).send('User Authenticated')
 })
 

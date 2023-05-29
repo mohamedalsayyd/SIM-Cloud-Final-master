@@ -1,5 +1,5 @@
 {
-  "name": "accounts-service",
+  "name": "auth-service",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,6 +13,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "connect-mongo": "^5.0.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-flash": "^0.0.2",

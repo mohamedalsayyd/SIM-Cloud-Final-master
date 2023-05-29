@@ -1,13 +1,13 @@
 function isAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-      return next();
+    if (!req.isAuthenticated()) {
+      return res.status(302).redirect("/login")
     }
-    res.status(401).redirect("/login")
+      next();
   }
   
   function isNotAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
-      return res.status(200).redirect("/")
+      return res.status(302).redirect("/")
     } 
       next();
   }

@@ -26,7 +26,7 @@ const Product = ({ product }) => {
             {product.category}
           </div>
           <div className="text-[15px] mb-4 lg:mb-">
-            {product.description.substring(0, 35)}...
+            {product.name}
           </div>
           <div className="text-lg text-accent">${product.price}</div>
         </div>

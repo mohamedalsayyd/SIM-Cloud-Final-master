@@ -20,7 +20,7 @@ const Search = () => {
       setData(data);
     };
     fetchData();
-  }, []);
+  }, [searchText]);
 
   return (
     <div className="mb-[30px] pt-40 lg:pt-4 lg:pt-0">

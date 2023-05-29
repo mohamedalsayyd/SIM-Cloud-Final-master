@@ -6,8 +6,10 @@ const flash = require("express-flash");
 const MongoStore = require("connect-mongo");
 const connectDB = require("./models/db")
 const authRouter = require("./routes/authRouter");
+const cors = require('cors');
 
 const app = express();
+app.use(cors())
 const SessionStore = MongoStore.create({ mongoUrl: process.env.MONGODB_URI });
 
 // common middlewares
@@ -34,7 +36,7 @@ app.use(passport.session()); //connect the passport framework to the session man
 
 
 // routes middlewares
-app.use("/", authRouter);
+app.use(authRouter);
 
 
 // Start server
@@ -44,6 +46,6 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://0.0.0.0:27017/products
 connectDB(MONGODB_URI)
 .then( () => {
   console.log(`database connected on: ${MONGODB_URI}`)
-  app.listen(PORT, () => console.log(`accounts service on: ${PORT}`))
+  app.listen(PORT, () => console.log(`authentication service on: ${PORT}`))
 })
 .catch((err) => console.log(err.message));
