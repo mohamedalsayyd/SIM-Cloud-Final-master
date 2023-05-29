@@ -31,7 +31,7 @@ app.use(
     })
   );
 
-require("./passport-config");
+require("./config/passport-config");
 app.use(passport.initialize());
 app.use(passport.session()); //connect the passport framework to the session management. How? uses req.session object to further deserialize the user.
 

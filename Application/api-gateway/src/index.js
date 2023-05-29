@@ -32,7 +32,6 @@ const authProxy = createProxyMiddleware({
     });
   },
 });
-
 // Product-Inventory Service Layer
 const inventoryProxy = createProxyMiddleware({
   target: 'http://localhost:3001',

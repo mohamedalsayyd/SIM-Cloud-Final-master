@@ -23,33 +23,26 @@ router.post('/login', isNotAuthenticated, passport.authenticate('local', {
 }))
 
 router.post('/register', isNotAuthenticated, async (req, res, next) => {
-    try {
-      const { name, password, email } = req.body;
-      console.log(name, password, email)
-      const user = await User.create({ name, password, email });
-      res.redirect('/login')
-    } catch (error) {
-      console.log(error)
-      res.redirect('/register')
-    }
-  });
+  try {
+    const { name, password, phone, email } = req.body;
+    await User.create({ name, password, phone, email });
+    res.redirect('/login')
+  } catch (error) {
+    res.redirect('/register')
+  }
+});
 
-  router.get('/logout', isAuthenticated, (req, res, next) => {
-    req.logout((error) => {
-        if (error) {
-            return next(error)
-        }
-        res.redirect('/login')
-    })
+router.get('/logout', isAuthenticated, (req, res, next) => {
+  req.logout((error) => {
+      if (error) {
+          return next(error)
+      }
+      res.redirect('/login')
+  })
 })
 
 router.get('/u', isAuthenticated, function (req, res) {
-  const {name, email, createdAt } = req.user
-  res.status(201).json({
-    username: name, 
-    email: email,
-    createdAt
-  })
+  res.status(404).json(req.user)
 })
 
 // authentication route 

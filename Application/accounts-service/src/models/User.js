@@ -20,6 +20,14 @@ const structure = {
         match: [/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, 'Invalid email'],
         unique: true,
         lowercase: true
+    },
+    phone: {
+        type: String,
+        required: [true, 'phone is required'],
+        minlength: 10,
+        maxlength: 20,
+        unique: true,
+        lowercase: true
     }
 }
 

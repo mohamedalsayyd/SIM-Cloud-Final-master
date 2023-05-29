@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { FiMenu } from "react-icons/fi";
 import { SlBag } from "react-icons/sl";
 import CategoryNavMobile from "./CategoryNavMobile";
@@ -12,6 +12,20 @@ const Header = () => {
   const { isOpen, setIsOpen, itemsAmount } = useContext(CartContext);
   const [catNavMobile, setCatNavMobile] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+
+
+  const [account, setAccount] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch("http://localhost:9000/u");
+      const data = await res.json();
+      setAccount(data);
+    };
+
+    fetchData(); // call the fetchData function to fetch the data
+  }, []);
+
 
   return (
     <header className="bg-primary py-6 fixed w-full top-0 z-40 lg:relative xl:mb-[30px]">
@@ -64,23 +78,24 @@ const Header = () => {
                       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScJXWdvwDZC0RF_VSzzP8aXSX9Sc_VPAtuew&usqp=CAU"
                       alt=""
                     />
-                    <span className="flex-1">Medo</span>
+                    <span className="flex-1">{account.name}</span>
                   </Link>
                   <span className="flex items-center justify-center  text-gray-700/75">
-                    medo@gmail.com
+                    {account.email}
                   </span>
                   <span className="flex items-center justify-center  text-gray-700/75">
-                    +2001210101010
+                    +20 {account.phone}
                   </span>
                 </div>
 
                 <div className="py-1" role="none">
-                  <Link
+                  <a
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                     role="menuitem"
+                    href="/logout"
                   >
                     Sign out
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
