@@ -7,12 +7,12 @@ import Logo from "../img/logo.png";
 import SearchForm from "./SearchForm";
 import Cart from "./Cart";
 import { CartContext } from "../context/CartContext";
+import { Toaster } from 'react-hot-toast';
 
 const Header = () => {
   const { isOpen, setIsOpen, itemsAmount } = useContext(CartContext);
   const [catNavMobile, setCatNavMobile] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
 
   const [account, setAccount] = useState([]);
 
@@ -25,7 +25,6 @@ const Header = () => {
 
     fetchData(); // call the fetchData function to fetch the data
   }, []);
-
 
   return (
     <header className="bg-primary py-6 fixed w-full top-0 z-40 lg:relative xl:mb-[30px]">
@@ -117,6 +116,7 @@ const Header = () => {
             bg-[#0e0f10] shadow-xl fixed top-0 bottom-0 w-full z-10 md:max-w-[500px] transition-all duration-300`}
             >
               <Cart />
+              <Toaster position="top-center" />
             </div>
           </div>
         </div>

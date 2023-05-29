@@ -4,6 +4,11 @@ import { CartContext } from "./../context/CartContext";
 import CartItem from "../components/CartItem";
 import toast, { Toaster } from "react-hot-toast";
 const notify = () => toast.success("Successfully!");
+const clear = () =>
+  toast("Your cart is empty", {
+    icon: "🛒",
+  });
+
 const Cart = () => {
   const { setIsOpen, cart, total, clearCart } = useContext(CartContext);
   return (
@@ -39,17 +44,22 @@ const Cart = () => {
         {cart.length >= 1 ? (
           <div className="flex justify-between gap-x-4">
             <button
-              onClick={() => clearCart()}
+              onClick={() => {
+                clearCart();
+                clear();
+              }}
               className="btn btn-accent hover:bg-accent-hover text-primary"
             >
               clear cart
             </button>
             <button
-              onClick={notify}
+              onClick={() => {
+                notify();
+                clearCart();
+              }}
               className="btn btn-accent hover:bg-accent-hover text-primary"
             >
               Checkout
-              <Toaster position="top-center" />
               <IoArrowForward className="text-lg" />
             </button>
           </div>
