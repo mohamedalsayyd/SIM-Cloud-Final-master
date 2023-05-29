@@ -28,6 +28,7 @@ router.post('/register', isNotAuthenticated, async (req, res, next) => {
     await User.create({ name, password, phone, email });
     res.redirect('/login')
   } catch (error) {
+    console.log(error)
     res.redirect('/register')
   }
 });
