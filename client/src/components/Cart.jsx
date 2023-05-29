@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { IoArrowForward, IoCartOutline, IoClose } from "react-icons/io5";
 import { CartContext } from "./../context/CartContext";
 import CartItem from "../components/CartItem";
+import toast, { Toaster } from "react-hot-toast";
+const notify = () => toast.success("Successfully!");
 const Cart = () => {
   const { setIsOpen, cart, total, clearCart } = useContext(CartContext);
   return (
@@ -42,8 +44,12 @@ const Cart = () => {
             >
               clear cart
             </button>
-            <button className="btn btn-accent hover:bg-accent-hover text-primary">
+            <button
+              onClick={notify}
+              className="btn btn-accent hover:bg-accent-hover text-primary"
+            >
               Checkout
+              <Toaster position="top-center" />
               <IoArrowForward className="text-lg" />
             </button>
           </div>

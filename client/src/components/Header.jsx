@@ -44,7 +44,7 @@ const Header = () => {
           >
             <CategoryNavMobile setCatNavMobile={setCatNavMobile} />
           </div>
-          <Link>
+          <Link to="/">
             <img src={Logo} alt="logo" />
           </Link>
           <div className="hidden w-full xl:flex xl:max-w-[734px]">
