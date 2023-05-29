@@ -53,9 +53,11 @@ const Cart = () => {
               clear cart
             </button>
             <button
-              onClick={() => {
+              onClick={async () => {
                 notify();
                 clearCart();
+                const res = await fetch("/u/orders/add")
+                console.log(await res.json());
               }}
               className="btn btn-accent hover:bg-accent-hover text-primary"
             >

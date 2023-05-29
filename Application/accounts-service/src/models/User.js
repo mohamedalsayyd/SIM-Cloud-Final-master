@@ -28,6 +28,10 @@ const structure = {
         maxlength: 20,
         unique: true,
         lowercase: true
+    },
+    orders: {
+        type: Number,
+        default: 0
     }
 }
 

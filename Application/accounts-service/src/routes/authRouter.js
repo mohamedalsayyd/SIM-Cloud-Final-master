@@ -45,6 +45,11 @@ router.get('/u', isAuthenticated, function (req, res) {
   res.status(404).json(req.user)
 })
 
+router.get('/u/orders/add', isAuthenticated, async (req, res) => {
+  const user = await User.findByIdAndUpdate(req.user._id, { orders: req.user.orders + 1}, { new: true });
+  res.status(404).json(user)
+})
+
 // authentication route 
 router.use(isAuthenticated, function(req, res) {
   res.status(200).send('User Authenticated')

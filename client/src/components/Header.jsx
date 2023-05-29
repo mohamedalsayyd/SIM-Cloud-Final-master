@@ -77,16 +77,16 @@ const Header = () => {
                       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScJXWdvwDZC0RF_VSzzP8aXSX9Sc_VPAtuew&usqp=CAU"
                       alt=""
                     />
-                    <span className="flex-1">{account.name}</span>
+                    <span className="flex-1">{account.name || "Unknown"}</span>
                   </Link>
                   <span className="flex items-center px-2 py-1 text-gray-700/75">
-                    Email: {account.email}
+                    Email: {account.email || "Unknown" }
                   </span>
                   <span className="flex items-center px-2 py-1 text-gray-700/75">
                     Phone: +20 {account.phone}
                   </span>
                   <span className="flex items-center px-2 py-1 text-gray-700/75">
-                    Orders: 0
+                    Orders: {account.orders || "0"}
                   </span>
                 </div>
 
