@@ -5,6 +5,7 @@ const productsRouter = require("./routes/productsRouter")
 
 // Middleware
 const app = express();
+app.use(express.json());
 app.use(bodyParser.json());
 
 // Routes
