@@ -46,7 +46,7 @@ const frontEndProxy = createProxyMiddleware({
 
 // Middleware
 app.use(cors());
-// app.use(authProxy);
+app.use(authProxy);
 app.use('/api/inventory', inventoryProxy);
 app.use(frontEndProxy);
 

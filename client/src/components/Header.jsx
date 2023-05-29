@@ -60,7 +60,7 @@ const Header = () => {
                 </button>
               </div>
               <div
-                className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100"
+                className="origin-top-right absolute right-0 mt-2 w-72 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100"
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="menu-button"
@@ -79,11 +79,14 @@ const Header = () => {
                     />
                     <span className="flex-1">{account.name}</span>
                   </Link>
-                  <span className="flex items-center justify-center  text-gray-700/75">
-                    {account.email}
+                  <span className="flex items-center px-2 py-1 text-gray-700/75">
+                    Email: {account.email}
                   </span>
-                  <span className="flex items-center justify-center  text-gray-700/75">
-                    +20 {account.phone}
+                  <span className="flex items-center px-2 py-1 text-gray-700/75">
+                    Phone: +20 {account.phone}
+                  </span>
+                  <span className="flex items-center px-2 py-1 text-gray-700/75">
+                    Orders: 0
                   </span>
                 </div>
 
