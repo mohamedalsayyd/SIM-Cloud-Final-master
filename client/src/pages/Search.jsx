@@ -13,9 +13,7 @@ const Search = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(
-        `http://localhost:9000/api/inventory/products?name=${searchText}`
-      );
+      const res = await fetch(`/api/inventory/products?name=${searchText}`);
       const data = await res.json();
       setData(data);
     };

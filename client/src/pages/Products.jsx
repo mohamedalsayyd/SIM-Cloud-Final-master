@@ -8,7 +8,7 @@ const Products = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch("http://localhost:9000/api/inventory/products");
+      const res = await fetch("/api/inventory/products");
       const data = await res.json();
       setData(data);
       setTitle("All"); // set the title to "All" for the default category

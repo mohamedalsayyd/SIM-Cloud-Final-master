@@ -1,3 +1,4 @@
+require("dotenv").config()
 const express = require("express");
 const bodyParser = require("body-parser");
 const connectDB = require("./models/db")
@@ -24,8 +25,7 @@ app.use((err, req, res, next) => {
 
 // Start server
 const PORT = process.env.PORT || 3001;
-const MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://0.0.0.0:27017/products";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://mongo_db:27017/products";
 
 connectDB(MONGODB_URI)
 .then( () => {

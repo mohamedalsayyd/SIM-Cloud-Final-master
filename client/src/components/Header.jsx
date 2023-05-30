@@ -18,7 +18,7 @@ const Header = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch("http://localhost:9000/u");
+      const res = await fetch("/u");
       const data = await res.json();
       setAccount(data);
     };
@@ -74,7 +74,7 @@ const Header = () => {
                   >
                     <img
                       className="h-8 w-8 rounded-full mr-2"
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScJXWdvwDZC0RF_VSzzP8aXSX9Sc_VPAtuew&usqp=CAU"
+                      src="/images/avatar.jpg"
                       alt=""
                     />
                     <span className="flex-1">{account.name || "Unknown"}</span>

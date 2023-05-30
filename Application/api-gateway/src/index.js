@@ -1,11 +1,18 @@
+require("dotenv").config()
 const express = require('express');
 const cors = require('cors');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const app = express();
 
+
+const ACCOUNTS_SERVICE_URL = process.env.ACCOUNTS_SERVICE_URL || "http://accounts-service:3002"
+const INVENTORY_SERVICE_URL = process.env.INVENTORY_SERVICE_URL || "http://inventory-service:3001"
+const FRONTEND_URL = process.env.FRONTEND_URL || "http://front-end:3003"
+
+
 // Authentication Service Layer
 const authProxy = createProxyMiddleware({
-  target: 'http://localhost:3002',
+  target: ACCOUNTS_SERVICE_URL,
   selfHandleResponse: true,
   onProxyRes(proxyRes, req, res) {
     // Relay response headers
@@ -32,17 +39,18 @@ const authProxy = createProxyMiddleware({
     });
   },
 });
+
 // Product-Inventory Service Layer
 const inventoryProxy = createProxyMiddleware({
-  target: 'http://localhost:3001',
-  changeOrigin: true,
-});
-// Front-End Layer
-const frontEndProxy = createProxyMiddleware({
-  target: 'http://localhost:3003',
+  target: INVENTORY_SERVICE_URL,
   changeOrigin: true,
 });
 
+// Front-End Layer
+const frontEndProxy = createProxyMiddleware({
+  target: FRONTEND_URL,
+  changeOrigin: true,
+});
 
 // Middleware
 app.use(cors());

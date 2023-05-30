@@ -7,7 +7,7 @@ const LatestProducts = () => {
   const [category, setCategory] = useState("all");
 
   const fetchData = async () => {
-    const res = await fetch("http://localhost:9000/api/inventory/products");
+    const res = await fetch("/api/inventory/products");
     const newData = await res.json();
     setData(newData)
     setCategories(() => ["all", ...Array.from(new Set(newData.map(product => product.category)))])

@@ -1,11 +1,10 @@
 POST http://localhost:9000/api/inventory/products
 Content-Type: application/json
-Cookie: "connect.sid=s%3A0PBsMTjixQtvYe2ZIgISifbU-HgQ2tM8.m6cJyJWDfGuYBlT6DhgnpF3IB2cEqz%2BspzgZsjz5VgQ"
 
 {
-    "name": "Mini Projector, CLOKOWE 2023",
-    "description": "Mini Projector, CLOKOWE 2023 Upgraded Portable Projector with 9000 Lux and Full HD 1080P, Movie Projector Compatible with iOS/Android Phone/Tablet/Laptop/PC/TV Stick/Box/USB Drive/DVD/Game Console",
-    "category": "electronics",
+    "name": "Epson Workforce Pro",
+    "description": "Epson Workforce Pro WF-7840 Wireless All-in-One Wide-Format Printer with Auto 2-Sided Print up to 13 19, Copy, Scan and Fax",
+    "category": "printers",
     "quantity": 4,
-    "price": 69.99
+    "price": 259.99
 }

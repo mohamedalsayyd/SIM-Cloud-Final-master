@@ -9,7 +9,7 @@ const CartItem = ({ item }) => {
     <div className="flex gap-x-8 ">
       <Link to={`product/${item._id}`} className="w-[70px] h-[70px]">
         <img
-          src={`https://camerashop.com.eg/wp-content/uploads/2022/10/1-1653353121_1708099.jpg`}
+          src="/images/camera.jpg"
           alt=""
         />
       </Link>

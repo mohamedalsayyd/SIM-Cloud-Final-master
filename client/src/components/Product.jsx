@@ -15,9 +15,7 @@ const Product = ({ product }) => {
         <div className="w-full h-[200px] flex items-center justify-center">
           <img
             className="w-[160px] h-[160px] group-hover:scale-90 transition-all"
-            src={
-              "https://camerashop.com.eg/wp-content/uploads/2022/10/1-1653353121_1708099.jpg"
-            }
+            src="/images/camera.jpg"
             alt={product.name}
           />
         </div>

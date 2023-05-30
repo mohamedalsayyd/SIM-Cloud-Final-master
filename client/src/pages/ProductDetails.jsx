@@ -13,7 +13,7 @@ const ProductDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(
-        `http://localhost:9000/api/inventory/products/${id}`
+        `/api/inventory/products/${id}`
       );
       const data = await res.json();
       setData(data);
@@ -31,9 +31,7 @@ const ProductDetails = () => {
         <div className="flex flex-col lg:flex-row gap-[30px] mb-[30px]">
           <div className="flex-1 lg:max-w-[40%] lg:h-[540px] grad rounded-lg flex justify-center items-center">
             <img
-              src={
-                "https://camerashop.com.eg/wp-content/uploads/2022/10/1-1653353121_1708099.jpg"
-              }
+              src="/images/camera.jpg"
               alt=""
               className="w-full max-w-[65%]"
             />

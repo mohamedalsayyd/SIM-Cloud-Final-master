@@ -1,3 +1,4 @@
+require("dotenv").config()
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require("body-parser");
@@ -35,14 +36,12 @@ require("./config/passport-config");
 app.use(passport.initialize());
 app.use(passport.session()); //connect the passport framework to the session management. How? uses req.session object to further deserialize the user.
 
-
 // routes middlewares
 app.use(authRouter);
 
-
 // Start server
 const PORT = process.env.PORT || 3002;
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://0.0.0.0:27017/products";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://mongo_db:27017/products";
 
 connectDB(MONGODB_URI)
 .then( () => {

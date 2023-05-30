@@ -1,0 +1,51 @@
+version: '3.9'
+
+services:
+  mongo_db:
+    container_name: mongo_db_container
+    image: mongo:latest
+    restart: always
+    volumes: 
+      - mongo_db:/data/db
+
+  api-gateway:
+    container_name: api-gateway
+    image: sim-api-gateway:latest
+    ports: 
+     - 9000:9000
+    environment:
+      PORT: 9000
+      INVENTORY_SERVICE_URL: http://inventory-service:3001
+      ACCOUNTS_SERVICE_URL: http://accounts-service:3002
+      FRONTEND_URL: http://front-end:3003
+
+  front-end:
+    container_name: front-end
+    image: sim-front-end:latest
+    ports: 
+     - 3003:3003
+    environment:
+      PORT: 3003
+
+  accounts-service:
+    container_name: accounts-service
+    image: sim-accounts-service:latest
+    environment:
+      PORT: 3002
+      MONGODB_URI: mongodb://mongo_db:27017/products
+      SESSION_SECRET: thisissecret
+    depends_on:
+      - mongo_db
+
+  inventory-service:
+    container_name: inventory-service
+    image: sim-inventory-service:latest
+    environment:
+      PORT: 3001
+      MONGODB_URI: mongodb://mongo_db:27017/products
+    depends_on:
+      - mongo_db
+
+
+volumes: 
+  mongo_db: {}
